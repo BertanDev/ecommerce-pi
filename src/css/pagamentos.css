@@ -1,0 +1,27 @@
+
+
+
+
+.justify-content-start{
+
+
+    background-color: #001d36; 
+    padding: 2% 0% 2% 0%;
+    padding-left: 10%;
+    width: 95%;
+    border-radius: 2%;
+    box-shadow: 10px 10px 10px 10px rgba(0.5, 0.5, 0.5, 0.5);
+
+}
+.opcoesPagamento{
+
+    margin:0% 0% 2% 0;
+}
+
+.card{
+
+    border-radius: 50%;
+    
+}
+
+ 

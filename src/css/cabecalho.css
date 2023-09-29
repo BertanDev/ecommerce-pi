@@ -1,0 +1,20 @@
+
+
+.cabecalho{
+    
+    background-color: #001d36;
+    margin-bottom: 5%;
+
+}
+
+.nav-link, .rodape{
+
+	color: aliceblue;
+    font-family: 'Open Sans',Arial,sans-serif;
+}
+
+body {
+	background-color: #F2F5F7;
+	font-family: 'Open Sans',Arial,sans-serif;
+}
+

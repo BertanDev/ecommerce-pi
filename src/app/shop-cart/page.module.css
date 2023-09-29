@@ -1,0 +1,41 @@
+.nav-link {
+	color: aliceblue;
+  }
+
+  .cabecalho {
+	background-color: #001d36;
+	font-family: "Open Sans", Arial, sans-serif;
+	margin-bottom: 5%;
+  }
+
+  .body {
+	background-color: #f2f5f7;
+	font-family: "Open Sans", Arial, sans-serif;
+  }
+
+  @media (min-width: 1025px) {
+	.h-custom {
+	  height: 100vh !important;
+	}
+  }
+
+
+
+.cabecalho{
+    
+    background-color: #001d36;
+    margin-bottom: 5%;
+
+}
+
+.nav-link, .rodape{
+
+	color: aliceblue;
+    font-family: 'Open Sans',Arial,sans-serif;
+}
+
+.body {
+	background-color: #F2F5F7;
+	font-family: 'Open Sans',Arial,sans-serif;
+}
+

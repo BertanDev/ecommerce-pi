@@ -1,0 +1,41 @@
+.body{
+
+	background-color: #F2F5F7;
+  }
+  
+	  .nav-link {
+		color: aliceblue;
+	  }
+  
+	  .cabecalho {
+		background-color: #001d36;
+		margin-bottom: 5%;
+	  }
+  
+	  .formulario {
+		text-align: center;
+		margin: 5% 30%;
+		background-color: aliceblue;
+		padding: 3%;
+	  }
+  
+	  .form-group {
+		margin-bottom: 5%;
+		display: flex;
+	  }
+  
+	  .form-control {
+		width: 100%;
+	  }
+  
+	  .btn {
+		margin-bottom: 5%;
+	  }
+  
+	  .olho {
+		cursor: pointer;
+		width: 3%;
+		height: 50%;
+		margin-left: 1%;
+		margin-top: 2%;
+	  }

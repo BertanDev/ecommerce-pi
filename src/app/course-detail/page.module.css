@@ -1,0 +1,76 @@
+.cabecalho{
+    
+    background-color: #001d36;
+    margin-bottom: 5%;
+}
+
+.nav-link, .rodape{
+	color: aliceblue;
+    font-family: 'Open Sans',Arial,sans-serif;
+}
+
+.body {
+	background-color: #F2F5F7;
+	font-family: 'Open Sans',Arial,sans-serif;
+}
+
+.cartao{
+
+    margin-left: 30%;
+    background-color: #001d36; 
+    padding: 2% 3% 2% 0%;
+    padding-left: 2%;
+    width: 40%;
+    border-radius: 2%;
+    box-shadow: 10px 10px 10px 10px rgba(0.5, 0.5, 0.5, 0.5);
+
+}
+
+
+
+/* .conteudoPrincipal-cursos-link:nth-child(odd) a:before {
+	background: url(../img/background1.svg) no-repeat;
+} */
+
+.conteudoPrincipal-cursos-link {
+	height: 8rem;
+    width: 24rem;
+	background-color: #FFF;
+	text-align: center;
+	margin: 1% 1% 1% 1%;
+	transition: .3s;
+	box-shadow: 2px 2px 2px #CCC;
+	position: relative;
+    list-style-type: none;
+}
+
+.conteudoPrincipal-cursos-link a {
+	text-decoration: none;
+	color: #000;
+	font-weight: bold;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.conteudoPrincipal-cursos-link:hover {
+	box-shadow: 4px 4px 4px #CCC;
+}
+
+.conteudoPrincipal-cursos-link a:before {
+	content: '';
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 10px auto;
+}
+
+.cont {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 5%;
+}
