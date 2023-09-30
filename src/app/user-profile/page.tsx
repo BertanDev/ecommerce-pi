@@ -18,7 +18,7 @@ export default function UserProfile() {
   const token = Cookie.get('auth_token')
   const [currentProducts, setCurrentProducts] = useState([])
   const [categories, setCategories] = useState([])
-  const [currentCourse, setCurrentCourse] = useState({})
+  const [currentCourse, setCurrentCourse] = useState<any>({})
 
   // console.log(currentProducts)
   // console.log(categories)
