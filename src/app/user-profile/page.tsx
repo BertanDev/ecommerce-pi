@@ -82,7 +82,11 @@ export default function UserProfile() {
               <div className={styles.cursoCard} key={product.id}>
                 <div className={styles.cardCabecalho}>
                   <p>{product.name}</p>
-                  <p>{category ? category.name : 'Categoria não encontrada'}</p>
+                  <p>
+                    {(category as { name: string })
+                      ? category.name
+                      : 'Categoria não encontrada'}
+                  </p>
                 </div>
                 <div
                   className={styles.assistir}
