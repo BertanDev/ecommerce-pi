@@ -50,8 +50,6 @@ export default function CourseDetail() {
 
   const { addToCart, cart } = useContext(ShopCartContext)
 
-  console.log('--dsds', cart)
-
   const handleAddToCart = () => {
     addToCart({ id: course.id, name: course.name, price: course.price })
   }

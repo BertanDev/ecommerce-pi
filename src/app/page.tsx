@@ -24,6 +24,8 @@ export default function Home() {
         user_type: 1,
       })
 
+      console.log(response.data)
+
       const token = response.data.token
 
       api.defaults.headers.common.Authorization = `Bearer ${token}`
@@ -168,7 +170,7 @@ export default function Home() {
             </p>
             <a
               className={`btn btn-outline-success`}
-              href="./criarConta.html"
+              onClick={() => router.push(`/create-account`)}
               role="button"
             >
               Cadastrar-se

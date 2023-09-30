@@ -9,9 +9,22 @@ import Image from 'next/image'
 import { useContext } from 'react'
 import { ShopCartContext } from '@/contexts/ShopCartContext'
 import Header from '@/components/Header'
+import { api } from '@/lib/axios'
 
 export default function Payment() {
   const { cart } = useContext(ShopCartContext)
+
+  const transformedData = cart.map((item: any) => ({
+    product_id: item.id,
+  }))
+
+  const result = { products: transformedData }
+
+  console.log(result)
+
+  async function handleCreatePurchase() {
+    const response = await api.post('/purchase/create', result)
+  }
 
   return (
     <>
@@ -188,6 +201,14 @@ export default function Payment() {
                 </div>
               </div>
             </section>
+          </div>
+          <div className={styles.buttonfinish}>
+            <button
+              className={`btn btn-primary`}
+              onClick={handleCreatePurchase}
+            >
+              Finalizar compra
+            </button>
           </div>
         </section>
 

@@ -2,9 +2,15 @@
 
 import { useRouter } from 'next/navigation'
 import styles from './header.module.css'
+import Cookie from 'js-cookie'
 
 export default function Header() {
   const router = useRouter()
+
+  function handleLogout() {
+    Cookie.remove('auth_token')
+    router.push('/')
+  }
 
   return (
     <header className={styles.cabecalho}>
@@ -14,7 +20,7 @@ export default function Header() {
             <ul className="nav justify-content-center p-lg-2">
               <li className="nav-item">
                 <a
-                  className="nav-link text-light l fw-bold"
+                  className={`${styles.pointer} nav-link text-light l fw-bold`}
                   aria-current="page"
                   onClick={() => router.push('/products')}
                 >
@@ -28,7 +34,7 @@ export default function Header() {
             <ul className="nav justify-content-center p-lg-2 mt-2">
               <li className="nav-item">
                 <a
-                  className="nav-link fw-bold text-light "
+                  className={`nav-link fw-bold text-light ${styles.pointer}`}
                   aria-current="page"
                   onClick={() => router.push('/products')}
                 >
@@ -37,7 +43,7 @@ export default function Header() {
               </li>
               <li className="nav-item">
                 <a
-                  className="nav-link fw-bold text-light"
+                  className={`nav-link fw-bold text-light ${styles.pointer}`}
                   onClick={() => router.push('/products')}
                 >
                   Cursos
@@ -45,7 +51,7 @@ export default function Header() {
               </li>
               <li className="nav-item">
                 <a
-                  className="nav-link fw-bold text-light"
+                  className={`nav-link fw-bold text-light ${styles.pointer}`}
                   onClick={() => router.push('/products')}
                 >
                   Planos
@@ -57,9 +63,9 @@ export default function Header() {
             <ul className="nav justify-content-center p-lg-2 mt-2">
               <li className="nav-item">
                 <a
-                  className="nav-link text-light l fw-bold "
+                  className={`${styles.pointer} nav-link text-light l fw-bold`}
                   aria-current="page"
-                  href="#"
+                  onClick={() => router.push('user-profile')}
                 >
                   Usuário
                 </a>
@@ -67,6 +73,7 @@ export default function Header() {
               <button onClick={() => router.push('/shop-cart')}>
                 carrinho
               </button>
+              <button onClick={() => handleLogout()}>logout</button>
             </ul>
           </div>
         </div>

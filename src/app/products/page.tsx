@@ -47,8 +47,6 @@ export default function Products() {
     setCategoryCourses(changeCourses)
   }, [category, courses])
 
-  console.log(categoryCourses)
-
   useEffect(() => {
     async function getPlans() {
       const response = await fetch(
