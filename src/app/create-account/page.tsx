@@ -13,17 +13,32 @@ export default function CreateAccount() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [cpf, setCpf] = useState('')
 
   async function handleRegister() {
-    const response = await api.post('/authentication/create-user', {
-      name,
-      last_name: surname,
-      email,
-      password,
-      password_confirmation: confirmPassword,
-      birthdate: birthDate,
-      cpf: 12345678911,
-    })
+    try {
+      const response = await api.post('/authentication/create-user', {
+        name,
+        last_name: surname,
+        email,
+        password,
+        password_confirmation: confirmPassword,
+        birthdate: birthDate,
+        cpf: Number(cpf),
+      })
+
+      alert('Usuário registrado com sucesso!')
+
+      setName('')
+      setSurname('')
+      setBirthDate('')
+      setEmail('')
+      setPassword('')
+      setConfirmPassword('')
+      setCpf('')
+    } catch (error) {
+      alert(error.response.data.error)
+    }
   }
 
   const router = useRouter()
@@ -169,6 +184,19 @@ export default function CreateAccount() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className={styles['form-group']}>
+            <input
+              type="email"
+              className="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+              placeholder="Informe seu CPF"
+              required
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
             />
           </div>
 
