@@ -41,8 +41,9 @@
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	padding: 5%;
+	padding: 2%;
 	color: black;
+	margin-top: -50px;
 	align-items: center;
 	justify-content: center;
 }

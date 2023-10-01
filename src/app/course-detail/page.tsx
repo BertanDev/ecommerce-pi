@@ -19,6 +19,9 @@ export default function CourseDetail() {
     price: 0,
   })
 
+  const [userProducts, setUserProducts] = useState([])
+  const [courseExist, setCourseExist] = useState(false)
+
   const searchParams = useSearchParams()
 
   const id = searchParams.get('id')
@@ -29,7 +32,7 @@ export default function CourseDetail() {
   useEffect(() => {
     async function getCourse() {
       const response = await fetch(
-        `http://www.vitorads.com.br/product/find-one?id=${id}`,
+        `https://www.vitorads.com.br/product/find-one?id=${id}`,
         {
           method: 'GET',
           headers: new Headers({
@@ -45,13 +48,51 @@ export default function CourseDetail() {
       setCourse(course.product)
     }
 
+    async function getData() {
+      const response = await fetch(
+        `https://www.vitorads.com.br/user-product/get-all`,
+        {
+          method: 'GET',
+          headers: new Headers({
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          }),
+        },
+      )
+
+      const products = await response.json()
+      setUserProducts(products.user_products)
+    }
+
+    getData()
     getCourse()
   }, [id, token])
+
+  useEffect(() => {
+    const isCourseInCart = userProducts.some(
+      (product) => product.id === course.id,
+    )
+
+    if (isCourseInCart) {
+      setCourseExist(true)
+    } else {
+      setCourseExist(false)
+    }
+  }, [userProducts, course.id])
 
   const { addToCart, cart } = useContext(ShopCartContext)
 
   const handleAddToCart = () => {
-    addToCart({ id: course.id, name: course.name, price: course.price })
+    const isCourseInCart = userProducts.some(
+      (product) => product.id === course.id,
+    )
+
+    if (!isCourseInCart) {
+      addToCart({ id: course.id, name: course.name, price: course.price })
+    } else {
+      console.log('Este curso já está no carrinho.')
+    }
   }
 
   return (
@@ -104,8 +145,9 @@ export default function CourseDetail() {
                   type="button"
                   className="btn btn-outline-primary border border-light text-light btn-lg"
                   onClick={handleAddToCart}
+                  disabled={courseExist}
                 >
-                  Adquirir
+                  {courseExist ? 'Você já possui esse curso' : 'Adquirir'}
                 </button>
               </div>
             </div>

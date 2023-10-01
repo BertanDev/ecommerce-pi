@@ -27,7 +27,7 @@ export default function UserProfile() {
   useEffect(() => {
     async function getData() {
       const response = await fetch(
-        `http://www.vitorads.com.br/user-product/get-all`,
+        `https://www.vitorads.com.br/user-product/get-all`,
         {
           method: 'GET',
           headers: new Headers({
@@ -44,7 +44,7 @@ export default function UserProfile() {
 
     async function getCategories() {
       const response = await fetch(
-        'http://www.vitorads.com.br/category/get-all',
+        'https://www.vitorads.com.br/category/get-all',
         {
           method: 'GET',
           headers: new Headers({
@@ -105,7 +105,7 @@ export default function UserProfile() {
             <IframeRenderer
               // iframeCode={currentCourse.url}
               iframeCode={
-                '<iframe width="853" height="480" src="https://www.youtube.com/embed/bXUhonGv24c" title="1 HORA COM AS MÚSICAS MAIS TOCADAS DO DJ LUCAS BEAT" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+                '<iframe width="1000" height="600" src="https://www.youtube.com/embed/WRlfwBof66s" title="Aprenda JAVASCRIPT em apenas 5 MINUTOS (2023)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
               }
             />
             <p>{currentCourse.description}</p>

@@ -50,7 +50,7 @@ export default function Products() {
   useEffect(() => {
     async function getPlans() {
       const response = await fetch(
-        'http://www.vitorads.com.br/subscription-plan/get-all',
+        'https://www.vitorads.com.br/subscription-plan/get-all',
         {
           method: 'GET',
           headers: new Headers({
@@ -72,7 +72,7 @@ export default function Products() {
 
     async function getCategories() {
       const response = await fetch(
-        'http://www.vitorads.com.br/category/get-all',
+        'https://www.vitorads.com.br/category/get-all',
         {
           method: 'GET',
           headers: new Headers({
@@ -94,7 +94,7 @@ export default function Products() {
 
     async function getCourses() {
       const response = await fetch(
-        'http://www.vitorads.com.br/product/get-all',
+        'https://www.vitorads.com.br/product/get-all',
         {
           method: 'GET',
           headers: new Headers({

@@ -2,9 +2,32 @@
 
 import Head from 'next/head'
 import styles from './page.module.css'
-import Header from '@/components/Header'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { api } from '@/lib/axios'
 
 export default function CreateAccount() {
+  const [name, setName] = useState('')
+  const [surname, setSurname] = useState('')
+  const [birthDate, setBirthDate] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
+
+  async function handleRegister() {
+    const response = await api.post('/authentication/create-user', {
+      name,
+      last_name: surname,
+      email,
+      password,
+      password_confirmation: confirmPassword,
+      birthdate: birthDate,
+      cpf: 12345678911,
+    })
+  }
+
+  const router = useRouter()
+
   return (
     <>
       <Head>
@@ -29,7 +52,69 @@ export default function CreateAccount() {
         />
       </Head>
 
-      <Header />
+      <header className={styles.cabecalho}>
+        <div className="container py-2">
+          <div className="row">
+            <div className="col order-first">
+              <ul className="nav justify-content-center p-lg-2">
+                <li className="nav-item">
+                  <a
+                    className={`${styles['nav-link']} fw-bold text-light l`}
+                    aria-current="page"
+                    href="#"
+                  >
+                    <h2>Start Cursos</h2>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col">
+              <ul className="nav justify-content-center p-2 gap-md-4 mt-2">
+                <li className="nav-item">
+                  <a
+                    className={`${styles['nav-link']} fw-bold text-light`}
+                    aria-current="page"
+                    href="#"
+                  >
+                    Home
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className={`${styles['nav-link']} fw-bold text-light`}
+                    href="#"
+                  >
+                    Cursos
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className={`${styles['nav-link']} fw-bold text-light`}
+                    href="#"
+                  >
+                    Planos
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="col order-last">
+              <ul className="nav justify-content-center p-lg-2 mt-2">
+                <li className="nav-item">
+                  <a
+                    className={`${styles['nav-link']} fw-bold text-light l`}
+                    aria-current="page"
+                    href="#"
+                  >
+                    Usuário
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
 
       <body>
         <form className={styles.formulario}>
@@ -41,6 +126,8 @@ export default function CreateAccount() {
               aria-describedby="nameHelp"
               placeholder="Informe seu Nome"
               required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
 
@@ -52,19 +139,23 @@ export default function CreateAccount() {
               aria-describedby="lastNameHelp"
               placeholder="Informe seu Sobrenome"
               required
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
             />
           </div>
 
           <div className={styles['form-group']}>
             <input
               placeholder="Informe sua data de nascimento"
-              type="text"
+              type="date"
               className="form-control"
               id="exampleInputDataNascimento"
               aria-describedby="dataNascimentoHelp"
               //   onFocus="(this.type ='date')"
               //   onBlur="if (!this.value) this.type='text'"
               required
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
             />
           </div>
 
@@ -76,6 +167,8 @@ export default function CreateAccount() {
               aria-describedby="emailHelp"
               placeholder="Informe seu E-mail"
               required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -86,6 +179,8 @@ export default function CreateAccount() {
               id="password"
               placeholder="Informe sua senha"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
@@ -96,6 +191,8 @@ export default function CreateAccount() {
               id="confirm_password"
               placeholder="Confirme sua senha"
               required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 
@@ -113,11 +210,18 @@ export default function CreateAccount() {
             </label>
           </div>
           <button
-            type="submit"
+            type="button"
             className="btn btn-success d-grid gap-2 col-6 mx-auto"
+            onClick={handleRegister}
           >
             Registrar conta
           </button>
+          <p
+            style={{ color: 'gray', cursor: 'pointer', marginTop: '10px' }}
+            onClick={() => router.push('/')}
+          >
+            voltar para login
+          </p>
         </form>
       </body>
     </>
