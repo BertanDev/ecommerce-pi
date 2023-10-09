@@ -283,89 +283,97 @@ export default function Products() {
 
           <footer className={styles.rodapePrincipal}>
             <div className="container">
-              <section className="rodapePrincipal-navMap">
+              <section>
                 <h3 className="subtitulo">Mapa de cursos</h3>
                 <nav className={styles['rodapePrincipal-navMap-list']}>
-                  <h4
-                    className={`${styles['navmap-list-title']} ${styles['navmap-list-title-backend']}`}
-                  >
-                    {categories[0].name}
-                  </h4>
+                  <div className={styles.alinha}>
+                    <h4
+                      className={`${styles['navmap-list-title']} ${styles['navmap-list-title-backend']}`}
+                    >
+                      {categories[0].name}
+                    </h4>
 
-                  {firstCategoryCourses.map(
-                    (course: { id: number; name: string }) => {
-                      return (
-                        <a
-                          className={styles['rodapePrincipal-navMap-link']}
-                          href="#"
-                          key={course.id}
-                          onClick={() => chooseCourse({ id: course.id })}
-                        >
-                          {course.name}
-                        </a>
-                      )
-                    },
-                  )}
+                    {firstCategoryCourses.map(
+                      (course: { id: number; name: string }) => {
+                        return (
+                          <a
+                            className={styles['rodapePrincipal-navMap-link']}
+                            href="#"
+                            key={course.id}
+                            onClick={() => chooseCourse({ id: course.id })}
+                          >
+                            {course.name}
+                          </a>
+                        )
+                      },
+                    )}
+                  </div>
 
-                  <h4
-                    className={`${styles['navmap-list-title']} ${styles['navmap-list-title-frontend']}`}
-                  >
-                    {categories[1].name}
-                  </h4>
-                  {secondCategoryCourses.map(
-                    (course: { id: number; name: string }) => {
-                      return (
-                        <a
-                          className={styles['rodapePrincipal-navMap-link']}
-                          href="#"
-                          key={course.id}
-                          onClick={() => chooseCourse({ id: course.id })}
-                        >
-                          {course.name}
-                        </a>
-                      )
-                    },
-                  )}
+                  <div className={styles.alinha}>
+                    <h4
+                      className={`${styles['navmap-list-title']} ${styles['navmap-list-title-frontend']}`}
+                    >
+                      {categories[1].name}
+                    </h4>
+                    {secondCategoryCourses.map(
+                      (course: { id: number; name: string }) => {
+                        return (
+                          <a
+                            className={styles['rodapePrincipal-navMap-link']}
+                            href="#"
+                            key={course.id}
+                            onClick={() => chooseCourse({ id: course.id })}
+                          >
+                            {course.name}
+                          </a>
+                        )
+                      },
+                    )}
+                  </div>
 
-                  <h4
-                    className={`${styles['navmap-list-title']} ${styles['navmap-list-title-framework']}`}
-                  >
-                    {categories[2].name}
-                  </h4>
-                  {thirdCategoryCourses.map(
-                    (course: { id: number; name: string }) => {
-                      return (
-                        <a
-                          className={styles['rodapePrincipal-navMap-link']}
-                          href="#"
-                          key={course.id}
-                          onClick={() => chooseCourse({ id: course.id })}
-                        >
-                          {course.name}
-                        </a>
-                      )
-                    },
-                  )}
+                  <div className={styles.alinha}>
+                    <h4
+                      className={`${styles['navmap-list-title']} ${styles['navmap-list-title-framework']}`}
+                    >
+                      {categories[2].name}
+                    </h4>
+                    {thirdCategoryCourses.map(
+                      (course: { id: number; name: string }) => {
+                        return (
+                          <a
+                            className={styles['rodapePrincipal-navMap-link']}
+                            href="#"
+                            key={course.id}
+                            onClick={() => chooseCourse({ id: course.id })}
+                          >
+                            {course.name}
+                          </a>
+                        )
+                      },
+                    )}
+                  </div>
 
-                  <h4
-                    className={`${styles['navmap-list-title']} ${styles['navmap-list-title-bancoDeDados']}`}
-                  >
-                    {categories[3].name}
-                  </h4>
-                  {fourthCategoryCourses.map(
-                    (course: { id: number; name: string }) => {
-                      return (
-                        <a
-                          className={styles['rodapePrincipal-navMap-link']}
-                          href="#"
-                          key={course.id}
-                          onClick={() => chooseCourse({ id: course.id })}
-                        >
-                          {course.name}
-                        </a>
-                      )
-                    },
-                  )}
+                  <div className={styles.alinha}>
+                    <h4
+                      className={`${styles['navmap-list-title']} ${styles['navmap-list-title-bancoDeDados']}`}
+                    >
+                      {categories[3].name}
+                    </h4>
+                    {fourthCategoryCourses.map(
+                      (course: { id: number; name: string }) => {
+                        return (
+                          <a
+                            className={styles['rodapePrincipal-navMap-link']}
+                            href="#"
+                            key={course.id}
+                            onClick={() => chooseCourse({ id: course.id })}
+                          >
+                            {course.name}
+                          </a>
+                        )
+                      },
+                    )}
+                  </div>
                 </nav>
               </section>
             </div>

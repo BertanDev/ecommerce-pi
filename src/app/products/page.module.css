@@ -18,7 +18,12 @@
 	font-family: 'Open Sans',Arial,sans-serif;
 }
 
-
+.rodapePrincipal-navMap-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 255px;
+}
 
 .planos{
 
@@ -216,12 +221,14 @@
 
 .rodapePrincipal-navMap-list {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 255px;
+	flex-direction: row;
+	gap: 10rem;
 }
 
-
+.alinha {
+	display: flex;
+	flex-direction: column;
+}
 
 .rodapePrincipal-patrocinadores .container{
     display: flex;
