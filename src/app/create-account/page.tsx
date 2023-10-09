@@ -189,7 +189,7 @@ export default function CreateAccount() {
 
           <div className={styles['form-group']}>
             <input
-              type="email"
+              type="text"
               className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
